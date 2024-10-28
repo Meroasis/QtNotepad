@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/create_new_folder.png</file>
+        <file>icon/note_add_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/colors_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/construction_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/content_copy_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/content_cut_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/content_paste_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/find_replace_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/folder_open_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/format_color_fill_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/format_color_text_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/format_list_numbered_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/grouped_bar_chart_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/redo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/save_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/save_as_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/search_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/select_all_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/settings_accessibility_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/title_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/undo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/wrap_text_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+    </qresource>
+</RCC>
