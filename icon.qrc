@@ -23,5 +23,9 @@
         <file>icon/title_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
         <file>icon/undo_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
         <file>icon/wrap_text_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>icon/people.png</file>
+        <file>icon/1_1.jpg</file>
+        <file>icon/1_2.jpg</file>
+        <file>icon/1_3.jpg</file>
     </qresource>
 </RCC>
