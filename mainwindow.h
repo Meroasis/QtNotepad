@@ -24,12 +24,26 @@ private slots:
 
     void on_action_R_triggered();
 
+    void on_actionNew_triggered();
+
+    void on_actionOpen_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_actionSaveAs_triggered();
+
+    void on_TextEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
 
     QLabel statusCursorLabel;
     QLabel statusLabel;
 
+    QString filePath;
+    bool textChanged;
 
+    bool userEditComfirmed();
+    void saveFile(const QString &filename);
 };
 #endif // MAINWINDOW_H
