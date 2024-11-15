@@ -64,14 +64,14 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_actionFind_triggered()
 {
-    findDialog dlg;
+    findDialog dlg(this,ui->TextEdit);
     dlg.exec();
 }
 
 
 void MainWindow::on_action_R_triggered()
 {
-    ReplaceDialog dlg;
+    ReplaceDialog dlg(this,ui->TextEdit);
     dlg.exec();
 }
 
@@ -159,6 +159,8 @@ void MainWindow::on_TextEdit_textChanged()
         this->setWindowTitle("*"+this->windowTitle());
         textChanged = true;
     }
+    statusLabel.setText("length:" + QString::number(ui->TextEdit->toPlainText().length()) +
+                        "      lines: " + QString::number(ui->TextEdit->document()->lineCount()));
 }
 
 bool MainWindow::userEditComfirmed()
@@ -325,5 +327,28 @@ void MainWindow::on_actionExit_triggered()
 {
     if(userEditComfirmed())
         exit(0);
+}
+
+
+void MainWindow::on_TextEdit_cursorPositionChanged()
+{
+    int pos = ui->TextEdit->textCursor().position();
+    int col = 0;
+    int ln = 0;
+    int flg = -1;
+    QString text = ui->TextEdit->toPlainText();
+    for(int i = 0;i < pos;i++){
+        if(text[i] == '\n'){
+            ln++;
+            flg = i;
+        }
+
+    }
+    flg++;
+    col = pos - flg;
+    statusCursorLabel.setText("Ln:" + QString::number(ln + 1) + "      Col: " + QString::number(col + 1));
+
+
+
 }
 
