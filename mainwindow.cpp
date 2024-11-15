@@ -6,6 +6,10 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QColorDialog>
+#include <QFontDialog>
+#include <QTextCursor>
+#include <QTextDocumentFragment>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,6 +34,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
     ui->actionPaste->setEnabled(false);
+
+    QPlainTextEdit::LineWrapMode mode =ui->TextEdit->lineWrapMode();
+
+    if( mode == QTextEdit::NoWrap ){
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionAutoWarp->setChecked(false);
+    }
+    else{
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+        ui->actionAutoWarp->setChecked(true);
+
+    }
+    ui->actionToolBar->setChecked(true);
+    ui->actionStasueBar->setChecked(true);
 }
 
 MainWindow::~MainWindow()
@@ -229,5 +247,83 @@ void MainWindow::on_TextEdit_copyAvailable(bool b)
 void MainWindow::on_actionselectAll_triggered()
 {
     ui->TextEdit->selectAll();
+}
+
+
+void MainWindow::on_actionFontColor_triggered()
+{
+    QColor color = QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid()){
+        ui->TextEdit->setStyleSheet(QString("QPlainTextEdit{color: %1}").arg(color.name()));
+    }
+}
+
+
+void MainWindow::on_actionBackgroundColor_triggered()
+{
+    QColor color = QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid()){
+        ui->TextEdit->setStyleSheet(QString("QPlainTextEdit{background-color: %1}").arg(color.name()));
+    }
+}
+
+
+void MainWindow::on_actionFBGColor_triggered() // 设置字体背景颜色
+{
+    QColor bgColor = QColorDialog::getColor(Qt::yellow, this, "选择背景颜色");
+    if (bgColor.isValid()) {
+        QTextCursor cursor = ui->TextEdit->textCursor();
+        if (!cursor.selection().isEmpty()) {
+            QTextCharFormat format;
+            format.setBackground(bgColor);
+            cursor.mergeCharFormat(format);
+            ui->TextEdit->mergeCurrentCharFormat(format);
+        }
+    }
+}
+void MainWindow::on_actionAutoWarp_triggered()
+{
+    QPlainTextEdit::LineWrapMode mode =ui->TextEdit->lineWrapMode();
+
+    if( mode == QTextEdit::NoWrap ){
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionAutoWarp->setChecked(true);
+    }
+    else{
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+        ui->actionAutoWarp->setChecked(false);
+
+    }
+}
+
+void MainWindow::on_actionFont_triggered()
+{
+    bool ok = false;
+    QFont font = QFontDialog::getFont(&ok,this);
+    if(ok)
+        ui->TextEdit->setFont(font);
+}
+
+
+void MainWindow::on_actionToolBar_triggered()
+{
+    bool visible = ui->toolBar->isVisible();
+    ui->toolBar->setVisible(!visible);
+    ui->actionToolBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionStasueBar_triggered()
+{
+    bool visible = ui->statusbar->isVisible();
+    ui->statusbar->setVisible(!visible);
+    ui->actionStasueBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionExit_triggered()
+{
+    if(userEditComfirmed())
+        exit(0);
 }
 

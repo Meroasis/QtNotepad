@@ -52,6 +52,22 @@ private slots:
 
     void on_actionselectAll_triggered();
 
+    void on_actionFontColor_triggered();
+
+    void on_actionBackgroundColor_triggered();
+
+    void on_actionFBGColor_triggered();
+
+    void on_actionAutoWarp_triggered();
+
+    void on_actionFont_triggered();
+
+    void on_actionToolBar_triggered();
+
+    void on_actionStasueBar_triggered();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
 
