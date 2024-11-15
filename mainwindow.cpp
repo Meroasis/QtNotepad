@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
     ui->actionToolBar->setChecked(true);
     ui->actionStasueBar->setChecked(true);
+    on_actionLinenumber_triggered(false);
 }
 
 MainWindow::~MainWindow()
@@ -350,5 +351,11 @@ void MainWindow::on_TextEdit_cursorPositionChanged()
 
 
 
+}
+
+
+void MainWindow::on_actionLinenumber_triggered(bool checked)
+{
+    ui->TextEdit->hideLineNumberArea(!checked);
 }
 
